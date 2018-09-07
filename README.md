@@ -223,6 +223,9 @@ PushNotification.localNotification({
     number: '10', // (optional) Valid 32 bit integer specified as string. default: none (Cannot be zero)
     repeatType: 'day', // (Android only) Repeating interval. Could be one of `week`, `day`, `hour`, `minute, `time`. If specified as time, it should be accompanied by one more parameter 'repeatTime` which should the number of milliseconds between each interval
     actions: '["Yes", "No"]',  // (Android only) See the doc for notification actions to know more
+    priority: "high", // (optional) set notification priority, default: high
+    visibility: "private", // (optional) set notification visibility, default: private
+    importance: "high", // (optional) set notification importance, default: high
 });
 ```
 
@@ -260,6 +263,35 @@ it is not.
 ```javascript
 PushNotification.cancelLocalNotifications({id: '123'});
 ```
+
+## Notification priority ##
+ (optional) Specify `priority` to set priority of notification. Default value: "high"
+ Available options:
+ "max" = NotficationCompat.PRIORITY_MAX  
+"high" = NotficationCompat.PRIORITY_HIGH  
+"low" = NotficationCompat.PRIORITY_LOW  
+"min" = NotficationCompat.PRIORITY_MIN  
+"default" = NotficationCompat.PRIORITY_DEFAULT  
+ More information: https://developer.android.com/reference/android/app/Notification.html#PRIORITY_DEFAULT
+ ## Notification visibility ##
+ (optional) Specify `visibility` to set visibility of notification. Default value: "private"
+ Available options:
+ "private" = NotficationCompat.VISIBILITY_PRIVATE  
+"public" = NotficationCompat.VISIBILITY_PUBLIC  
+"secret" = NotficationCompat.VISIBILITY_SECRET  
+ More information: https://developer.android.com/reference/android/app/Notification.html#VISIBILITY_PRIVATE
+ ## Notification importance ##
+ (optional) Specify `importance` to set importance of notification. Default value: "high"
+ Available options:
+ "default" = NotificationManager.IMPORTANCE_DEFAULT  
+"max" = NotificationManager.IMPORTANCE_MAX  
+"high" = NotificationManager.IMPORTANCE_HIGH  
+"low" = NotificationManager.IMPORTANCE_LOW  
+"min" = NotificationManager.IMPORTANCE_MIN  
+"none" = NotificationManager.IMPORTANCE_NONE  
+"unspecified" = NotificationManager.IMPORTANCE_UNSPECIFIED  
+ More information: https://developer.android.com/reference/android/app/NotificationManager#IMPORTANCE_DEFAULT
+
 
 ### 2) cancelAllLocalNotifications
 
