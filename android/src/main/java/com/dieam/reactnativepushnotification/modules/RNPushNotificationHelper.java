@@ -46,6 +46,8 @@ public class RNPushNotificationHelper {
     public RNPushNotificationHelper(Application context) {
         this.context = context;
         this.scheduledNotificationsPersistence = context.getSharedPreferences(RNPushNotificationHelper.PREFERENCES_KEY, Context.MODE_PRIVATE);
+        NotificationManager notificationManager = notificationManager();
+        checkOrCreateChannel(notificationManager);
     }
 
     public Class getMainActivityClass() {
